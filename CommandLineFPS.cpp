@@ -25,6 +25,8 @@
 	120 Columns by 40 Rows. I recommend a small font "Consolas" at size 16. You can do this
 	by running the program, and right clicking on the console title bar, and specifying 
 	the properties. You can also choose to default to them in the future.
+	
+	Controls: A = Turn Left, D = Turn Right, W = Walk Forwards, S = Walk Backwards
 
 	Future Modifications
 	~~~~~~~~~~~~~~~~~~~~
