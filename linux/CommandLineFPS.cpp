@@ -177,10 +177,10 @@ int main()
             float fRayAngle = (fPlayerA - fFOV/2.0f) + ((float)x / (float)nScreenWidth) * fFOV;
 
             // Find distance to wall
-            float fStepSize = 0.1f;            // Increment size for ray casting, decrease to increase resolution
+            float fStepSize = 0.1f;        // Increment size for ray casting, decrease to increase resolution
             float fDistanceToWall = 0.0f;
 
-            bool bHitWall = false;        // Set when ray hits wall block
+            bool bHitWall = false;         // Set when ray hits wall block
             bool bBoundary = false;        // Set when ray hits boundary between two wall blocks
 
             float fEyeX = sinf(fRayAngle); // Unit vector for ray in player space
