@@ -1,5 +1,6 @@
 # CommandLineFPS - Linux Version
 
+![Screenshot](screenshot.png)
 ## Prerequisites
 
 * CMake - C/C++ build system
