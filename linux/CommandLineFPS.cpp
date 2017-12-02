@@ -245,11 +245,11 @@ int main()
 
             // Shader walls based on distance
             short nShade = ' ';
-            if (fDistanceToWall <= fDepth / 4.0f)            nShade = 0x2588;    // Very close
-            else if (fDistanceToWall < fDepth / 3.0f)        nShade = 0x2593;
-            else if (fDistanceToWall < fDepth / 2.0f)        nShade = 0x2592;
-            else if (fDistanceToWall < fDepth)                nShade = 0x2591;
-            else                                            nShade = ' ';        // Too far away
+            if (fDistanceToWall <= fDepth / 4.0f)        nShade = 0x2588;    // Very close
+            else if (fDistanceToWall < fDepth / 3.0f)    nShade = 0x2593;
+            else if (fDistanceToWall < fDepth / 2.0f)    nShade = 0x2592;
+            else if (fDistanceToWall < fDepth)           nShade = 0x2591;
+            else                                         nShade = ' ';       // Too far away
 
             if (bBoundary)
                 nShade = ' '; // Black it out
@@ -267,9 +267,9 @@ int main()
                     float b = 1.0f - (((float)y -nScreenHeight/2.0f) / ((float)nScreenHeight / 2.0f));
                     if (b < 0.25)        nShade = '#';
                     else if (b < 0.5)    nShade = 'x';
-                    else if (b < 0.75)    nShade = '.';
+                    else if (b < 0.75)   nShade = '.';
                     else if (b < 0.9)    nShade = '-';
-                    else                nShade = ' ';
+                    else                 nShade = ' ';
                     screen[y*nScreenWidth + x] = nShade;
                 }
             }
