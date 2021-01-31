@@ -70,10 +70,9 @@
 #include <utility>
 #include <algorithm>
 #include <chrono>
-using namespace std;
-
 #include <stdio.h>
 #include <Windows.h>
+using namespace std;
 
 int nScreenWidth = 120;			// Console Screen Size X (columns)
 int nScreenHeight = 40;			// Console Screen Size Y (rows)
