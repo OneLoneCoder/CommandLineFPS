@@ -77,7 +77,6 @@
 using namespace std;
 
 #include <stdio.h>
-//#include <windows.h>
 #include <math.h>
 #include <unistd.h>
 #include <wchar.h>
@@ -100,22 +99,6 @@ float fSpeed = 5.0f;			// Walking Speed
 
 struct termios tu_term, tu_old_term;
 bool tu_textlock = false;
-
-int kbhit() {
-    static const int STDIN = 0;
-    static bool initialized = false;
-    if (!initialized) {
-        struct termios term;
-        tcgetattr(STDIN, &term);
-        term.c_lflag &= ~ICANON;
-        tcsetattr(STDIN, TCSANOW, &term);
-        setbuf(stdin, NULL);
-        initialized = true;
-    }
-    int bytes;
-    ioctl(STDIN, FIONREAD, &bytes);
-    return bytes;
-}
 
 void tu_lockTerm() {
     if (!tu_textlock) {
@@ -347,9 +330,7 @@ int main()
 		}
 
 		// Display Stats
-		
 		swprintf(buf, 256, L"X=%3.2f, Y=%3.2f, A=%3.2f FPS=%3.2f ", fPlayerX, fPlayerY, fPlayerA, 1.0f/fElapsedTime);
-
 		wcsncpy(screen, buf, wcslen(buf));
 
 		// Display Map
