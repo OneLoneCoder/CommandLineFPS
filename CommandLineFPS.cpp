@@ -74,6 +74,7 @@ using namespace std;
 
 #include <stdio.h>
 #include <Windows.h>
+#pragma comment(lib, "user32.lib")
 
 int nScreenWidth = 120;			// Console Screen Size X (columns)
 int nScreenHeight = 40;			// Console Screen Size Y (rows)
@@ -90,29 +91,29 @@ float fSpeed = 5.0f;			// Walking Speed
 int main()
 {
 	// Create Screen Buffer
-	wchar_t *screen = new wchar_t[nScreenWidth*nScreenHeight];
+	char *screen = new char[nScreenWidth*nScreenHeight];
 	HANDLE hConsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
 	SetConsoleActiveScreenBuffer(hConsole);
 	DWORD dwBytesWritten = 0;
 
 	// Create Map of world space # = wall block, . = space
-	wstring map;
-	map += L"#########.......";
-	map += L"#...............";
-	map += L"#.......########";
-	map += L"#..............#";
-	map += L"#......##......#";
-	map += L"#......##......#";
-	map += L"#..............#";
-	map += L"###............#";
-	map += L"##.............#";
-	map += L"#......####..###";
-	map += L"#......#.......#";
-	map += L"#......#.......#";
-	map += L"#..............#";
-	map += L"#......#########";
-	map += L"#..............#";
-	map += L"################";
+	string map;
+	map += "#########.......";
+	map += "#...............";
+	map += "#.......########";
+	map += "#..............#";
+	map += "#......##......#";
+	map += "#......##......#";
+	map += "#..............#";
+	map += "###............#";
+	map += "##.............#";
+	map += "#......####..###";
+	map += "#......#.......#";
+	map += "#......#.......#";
+	map += "#..............#";
+	map += "#......#########";
+	map += "#..............#";
+	map += "################";
 
 	auto tp1 = chrono::system_clock::now();
 	auto tp2 = chrono::system_clock::now();
@@ -264,7 +265,7 @@ int main()
 		}
 
 		// Display Stats
-		swprintf_s(screen, 40, L"X=%3.2f, Y=%3.2f, A=%3.2f FPS=%3.2f ", fPlayerX, fPlayerY, fPlayerA, 1.0f/fElapsedTime);
+		sprintf_s(screen, 40, "X=%3.2f, Y=%3.2f, A=%3.2f FPS=%3.2f ", fPlayerX, fPlayerY, fPlayerA, 1.0f/fElapsedTime);
 
 		// Display Map
 		for (int nx = 0; nx < nMapWidth; nx++)
